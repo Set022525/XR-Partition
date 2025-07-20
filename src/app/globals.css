@@ -1,26 +1,126 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+html,
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+#__next {
+  height: 100%;
+  width: 100%;
+}
+
+/* WebXR用のスタイル調整 */
+canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+}
+
+/* ARボタンのスタイル調整 */
+button[data-xr-button] {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 999;
+  padding: 12px 24px;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button[data-xr-button]:hover {
+  background: #2563eb;
+}
+
+button[data-xr-button]:disabled {
+  background: #6b7280;
+  cursor: not-allowed;
+}
+
+/* コントロールパネルのスクロールバーカスタマイズ */
+.control-panel-scroll::-webkit-scrollbar {
+  width: 4px;
+}
+
+.control-panel-scroll::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 2px;
+}
+
+.control-panel-scroll::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 2px;
+}
+
+.control-panel-scroll::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* レンジスライダーのスタイル調整 */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  border-radius: 3px;
+  background: #e2e8f0;
+  outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  background: #3b82f6;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  background: #2563eb;
+}
+
+input[type="range"]::-moz-range-thumb {
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  background: #3b82f6;
+  cursor: pointer;
+  border: none;
+  transition: background 0.3s ease;
+}
+
+input[type="range"]::-moz-range-thumb:hover {
+  background: #2563eb;
+}
+
+/* モバイル向けのタッチ対応 */
+@media (max-width: 768px) {
+  .control-panel {
+    max-width: 280px;
+    right: 8px;
+    top: 8px;
+  }
+
+  button[data-xr-button] {
+    left: 8px;
+    top: 8px;
+    padding: 10px 20px;
+    font-size: 14px;
+  }
 }

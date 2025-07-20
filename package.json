@@ -1,27 +1,29 @@
 {
-  "name": "xr-partition",
+  "name": "webxr-ar-partition-app",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
-    "react": "19.1.0",
-    "react-dom": "19.1.0",
-    "next": "15.4.2"
+    "next": "14.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "@react-three/fiber": "^8.15.0",
+    "@react-three/xr": "^6.2.0",
+    "@react-three/drei": "^9.88.0",
+    "three": "^0.158.0"
   },
   "devDependencies": {
-    "typescript": "^5",
     "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "@tailwindcss/postcss": "^4",
-    "tailwindcss": "^4",
-    "eslint": "^9",
-    "eslint-config-next": "15.4.2",
-    "@eslint/eslintrc": "^3"
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "@types/three": "^0.158.0",
+    "eslint": "^8",
+    "eslint-config-next": "14.0.0",
+    "typescript": "^5"
   }
 }
